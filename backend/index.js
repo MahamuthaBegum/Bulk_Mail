@@ -14,8 +14,9 @@ mongoose.connect(process.env.MONGO_URI)
     .then(function () {
         console.log("Connected to DB");
     })
-    .catch(function () {
-        console.log("Failed to connect");
+    .catch(function (err) {
+        console.log("Failed to connect:", err);
+        console.log("MONGO_URI:", process.env.MONGO_URI ? "Exists" : "Not set");
     });
 
 const credential = mongoose.model("credential", {}, "bulkmailapp");
