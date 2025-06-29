@@ -9,7 +9,8 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect("mongodb+srv://magdoom:12345@cluster0.njegtar.mongodb.net/Passkeyapp?retryWrites=true&w=majority&appName=Cluster0")
+// mongoose.connect("mongodb+srv://magdoom:12345@cluster0.njegtar.mongodb.net/Passkeyapp?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect(process.env.MONGO_URI)
     .then(function () {
         console.log("Connected to DB");
     })
