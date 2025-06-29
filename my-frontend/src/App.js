@@ -29,7 +29,8 @@ reader.onload = function (event) {
   }
   function send() {
     setstatus(true)
-    axios.post("http://localhost:5000/sendemail", { msg:msg, emailList:emailList })
+    //axios.post("http://localhost:5000/sendemail", { msg:msg, emailList:emailList })
+    axios.post(`${process.env.REACT_APP_API_URL}/sendemail`, { msg, emailList })
       .then(function (data) {
         if (data.data === true) {
           alert("Email send successfully")
